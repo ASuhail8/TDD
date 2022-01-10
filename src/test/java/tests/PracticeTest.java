@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import base.Base;
 import pages.PracticePage;
 
-public class PracticeTest {
+public class PracticeTest extends Base {
 
 	public WebDriver driver;
 
