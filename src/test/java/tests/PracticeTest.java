@@ -1,8 +1,10 @@
 package tests;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+
+
 
 import base.Base;
 import pages.PracticePage;
@@ -18,7 +20,7 @@ public class PracticeTest extends Base {
 		driver = Base.loginToApplication();
 
 		// Check for landing page
-		AssertJUnit.assertEquals(driver.getTitle(), "Practice Page");
+		Assert.assertEquals(driver.getTitle(), "Practice Page");
 
 		// I click on Radio2
 		PracticePage practicePage = new PracticePage(driver);
