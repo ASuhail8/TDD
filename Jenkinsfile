@@ -1,8 +1,11 @@
 pipeline {
     agent any
+    parameters {
+  choice choices: ['FIREFOX', 'EDGE'], name: 'BROWSER'
+            }        
+
     stages {
     stage('Package jar and release artifacts') {
-        
         steps {
             sh 'mvn clean package -DskipTests'
         }
