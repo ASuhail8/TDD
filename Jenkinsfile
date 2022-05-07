@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Run the automated test') {
         steps {
-            sh 'mvn test'
+            sh "mvn -DBROWSER={$BROWSER} test"
         }
         post {
             always {
