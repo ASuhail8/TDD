@@ -1,5 +1,7 @@
 package tests;
 
+import java.net.MalformedURLException;
+
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -19,7 +21,7 @@ public class StaticDropdownTests extends Base {
 	public WebDriver driver;
 
 	@Test
-	public void staticDropdownTest() {
+	public void staticDropdownTest() throws MalformedURLException {
 
 		// Given User is on Practice
 		driver = Base.loginToApplication();

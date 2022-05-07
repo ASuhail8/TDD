@@ -1,23 +1,32 @@
 package base;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.junit.After;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
-
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Base {
 
 	public static WebDriver driver;
 
-	public static WebDriver loginToApplication() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+	public static WebDriver loginToApplication() throws MalformedURLException {
+		MutableCapabilities mc = new MutableCapabilities();
+
+		if (System.getProperty("BROWSER").equalsIgnoreCase("CHROME")) {
+			mc = new ChromeOptions();
+		} else {
+			mc = new EdgeOptions();
+		}
+
+		driver = new RemoteWebDriver(new URL("http://localhost:4444"), mc);
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();

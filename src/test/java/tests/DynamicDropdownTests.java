@@ -1,5 +1,7 @@
 package tests;
 
+import java.net.MalformedURLException;
+
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -20,7 +22,7 @@ public class DynamicDropdownTests extends Base {
 	public WebDriver driver;
 
 	@Test
-	public void dynamicdropdownTest() {
+	public void dynamicdropdownTest() throws MalformedURLException {
 
 		// Given User is on Practice Landing Page
 		driver = Base.loginToApplication();

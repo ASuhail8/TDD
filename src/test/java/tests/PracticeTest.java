@@ -1,5 +1,7 @@
 package tests;
 
+import java.net.MalformedURLException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +16,7 @@ public class PracticeTest extends Base {
 	public WebDriver driver;
 
 	@Test
-	public void handleRadioButtonTest() {
+	public void handleRadioButtonTest() throws MalformedURLException {
 
 		// launch Application
 		driver = Base.loginToApplication();
