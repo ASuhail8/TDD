@@ -22,9 +22,8 @@ pipeline {
         }
         post {
             always {
-                junit 'target/surefire-reports/junitreports/*.xml'
+                junit 'target/surefire-reports/*.xml'
                 emailext attachLog: true, attachmentsPattern: 'target/surefire-reports/*.xml', body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: '$DEFAULT_RECIPIENTS'
-                sh 'docker-compose down'
             }
         }
     } 
