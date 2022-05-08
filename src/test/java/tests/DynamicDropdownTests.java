@@ -3,8 +3,6 @@ package tests;
 import java.net.MalformedURLException;
 
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-
 
 import base.Base;
 import pages.PracticePage;
@@ -19,20 +17,21 @@ import pages.PracticePage;
  */
 public class DynamicDropdownTests extends Base {
 
-	public WebDriver driver;
-
 	@Test
 	public void dynamicdropdownTest() throws MalformedURLException {
 
 		// Given User is on Practice Landing Page
-		driver = Base.loginToApplication();
+		PracticePage page = new PracticePage(driver);
+		page.goTo();
+		System.out.println("On landing page");
 
 		// When User enters <country> in the select countries text box
-		PracticePage page = new PracticePage(driver);
+
 		page.enterCountryName("India");
 
 		// Then User should be able to select <country>
 		page.selectCountry("India");
+		System.out.println("Test completed - Passed");
 
 	}
 

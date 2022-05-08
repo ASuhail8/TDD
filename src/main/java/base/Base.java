@@ -2,35 +2,38 @@ package base;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.Duration;
 
 import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class Base {
 
-	public static WebDriver driver;
+	public WebDriver driver;
 
-	public static WebDriver loginToApplication() throws MalformedURLException {
+	@Before
+	public void loginToApplication() throws MalformedURLException {
+
 		MutableCapabilities mc = new MutableCapabilities();
 
-		if (System.getProperty("BROWSER").equalsIgnoreCase("CHROME")) {
-			mc = new ChromeOptions();
-		} else {
+		if (System.getProperty("BROWSER") != null && System.getProperty("BROWSER").equalsIgnoreCase("edge")) {
 			mc = new EdgeOptions();
+		} else if (System.getProperty("BROWSER") != null && System.getProperty("BROWSER").equalsIgnoreCase("firefox")) {
+			mc = new FirefoxOptions();
+		} else {
+			mc = new ChromeOptions();
 		}
+		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), mc);
 
-		driver = new RemoteWebDriver(new URL("http://localhost:4444"), mc);
-		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
-		return driver;
+		// WebDriverManager.chromedriver().setup();
+		// driver = new ChromeDriver();
 	}
 
 	public static Select selectDropdown(WebElement element) {

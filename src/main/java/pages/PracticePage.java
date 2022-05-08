@@ -1,5 +1,6 @@
 package pages;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.junit.Assert;
@@ -10,13 +11,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-
 import base.Base;
 
 public class PracticePage {
 
-	public WebDriver driver;
-
+	private WebDriver driver;
 	@FindBy(css = "#autocomplete")
 	private WebElement countryTxtField;
 
@@ -57,4 +56,9 @@ public class PracticePage {
 		dropdwn.selectByVisibleText(dropdown);
 	}
 
+	public void goTo() {
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+	}
 }

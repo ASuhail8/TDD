@@ -3,8 +3,6 @@ package tests;
 import java.net.MalformedURLException;
 
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-
 
 import base.Base;
 import pages.PracticePage;
@@ -18,18 +16,16 @@ import pages.PracticePage;
  */
 public class StaticDropdownTests extends Base {
 
-	public WebDriver driver;
-
 	@Test
 	public void staticDropdownTest() throws MalformedURLException {
 
 		// Given User is on Practice
-		driver = Base.loginToApplication();
+		PracticePage page = new PracticePage(driver);
+		page.goTo();
 
 		// When User selects "Option2"
-		PracticePage page = new PracticePage(driver);
 		page.selectDropdown("Option2");
-
+		System.out.println("Test completed - Passed");
 	}
 
 }

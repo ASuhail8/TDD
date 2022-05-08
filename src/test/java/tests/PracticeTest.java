@@ -4,32 +4,28 @@ import java.net.MalformedURLException;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-
-
 
 import base.Base;
 import pages.PracticePage;
 
 public class PracticeTest extends Base {
 
-	public WebDriver driver;
-
 	@Test
 	public void handleRadioButtonTest() throws MalformedURLException {
 
 		// launch Application
-		driver = Base.loginToApplication();
+		PracticePage page = new PracticePage(driver);
+		page.goTo();
 
 		// Check for landing page
 		Assert.assertEquals(driver.getTitle(), "Practice Page");
 
 		// I click on Radio2
-		PracticePage practicePage = new PracticePage(driver);
-		practicePage.clickOnRadioBtn("radio2");
+		page.clickOnRadioBtn("radio2");
 
 		// i validate that "radio2" is clicked and selected
-		practicePage.verifySelectedRadioBtn("radio2");
+		page.verifySelectedRadioBtn("radio2");
+		System.out.println("Test completed - Passed");
 
 	}
 
