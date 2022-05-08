@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        choice choices: ['CHROME','FIREFOX', 'EDGE'], name: 'BROWSER'
+        choice choices: ['CHROME','FIREFOX','EDGE'], name: 'BROWSER'
             }        
 
     stages {
@@ -17,6 +17,7 @@ pipeline {
     }
     stage('Run the automated test') {
         steps {
+            echo "Selected param is ${params.BROWSER}"
             sh "mvn -DBROWSER=${params.BROWSER} test"
         }
         post {
