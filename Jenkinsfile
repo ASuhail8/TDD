@@ -5,6 +5,10 @@ pipeline {
             }        
 
     stages {
+    stage('Start the docker container'){
+        sh 'docker-compose up'
+        sh 'sleep(10)'
+    }    
     stage('Package jar and release artifacts') {
         steps {
             sh 'mvn clean package -DskipTests'

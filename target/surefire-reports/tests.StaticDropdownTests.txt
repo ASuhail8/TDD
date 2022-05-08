@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------
+Test set: tests.StaticDropdownTests
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 3.41 s <<< FAILURE! - in tests.StaticDropdownTests
+tests.StaticDropdownTests.staticDropdownTest  Time elapsed: 3.389 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not start a new session. Response code 500. Message: Could not start a new session. Could not start a new session. Error while creating session with the driver service. Stopping driver service: Could not start a new session. Response code 500. Message: unknown error: MSEdge failed to start: crashed.
+  (unknown error: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location /usr/bin/microsoft-edge is no longer running, so MSEdgeDriver is assuming that MSEdge has crashed.)
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'f504683238f0', ip: '172.20.0.5', os.name: 'Linux', os.arch: 'amd64', os.version: '5.10.104-linuxkit', java.version: '11.0.15'
+Driver info: driver.version: unknown
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'f504683238f0', ip: '172.20.0.5', os.name: 'Linux', os.arch: 'amd64', os.version: '5.10.104-linuxkit', java.version: '11.0.15'
+Driver info: driver.version: unknown
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: '064603ff3239', ip: '172.20.0.2', os.name: 'Linux', os.arch: 'amd64', os.version: '5.10.104-linuxkit', java.version: '11.0.15'
+Driver info: driver.version: unknown
+Build info: version: '4.0.0', revision: '3a21814679'
+System info: host: 'Suhails-MacDoo.local', ip: 'fe80:0:0:0:1c99:8a6d:af8a:763d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '12.3.1', java.version: '18'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: MicrosoftEdge, ms:edgeOptions: {args: [], extensions: []}}], desiredCapabilities=Capabilities {browserName: MicrosoftEdge, ms:edgeOptions: {args: [], extensions: []}}}]
+Capabilities {}
+
+tests.StaticDropdownTests.staticDropdownTest  Time elapsed: 3.391 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.quit()" because "this.driver" is null
+
