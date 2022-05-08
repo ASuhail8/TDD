@@ -6,8 +6,10 @@ pipeline {
 
     stages {
     stage('Start the docker container'){
+        steps{
         sh 'docker-compose up'
         sh 'sleep(10)'
+        }
     }    
     stage('Package jar and release artifacts') {
         steps {
@@ -28,6 +30,7 @@ pipeline {
             always {
                 junit 'target/surefire-reports/junitreports/*.xml'
                 emailext attachLog: true, attachmentsPattern: 'target/surefire-reports/*.xml', body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: '$DEFAULT_RECIPIENTS'
+                sh 'docker-compose down'
             }
         }
     } 
