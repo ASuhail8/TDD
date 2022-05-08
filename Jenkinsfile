@@ -4,13 +4,7 @@ pipeline {
         choice choices: ['CHROME','FIREFOX','EDGE'], name: 'BROWSER'
             }        
 
-    stages {
-    stage('Start the docker container'){
-        steps{
-        sh 'docker-compose up'
-        sh 'sleep 1'
-        }
-    }    
+    stages {   
     stage('Package jar and release artifacts') {
         steps {
             sh 'mvn clean package -DskipTests'
