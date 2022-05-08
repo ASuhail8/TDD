@@ -24,7 +24,7 @@ pipeline {
         post {
             always {
                 junit 'target/surefire-reports/*.xml'
-                emailext attachLog: true, attachmentsPattern: 'test-output/emailable-report.html', body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: '$DEFAULT_RECIPIENTS'
+                emailext attachLog: true, body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: '$DEFAULT_RECIPIENTS'
                 cleanWs()
             }
         }
