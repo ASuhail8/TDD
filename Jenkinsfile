@@ -23,6 +23,7 @@ pipeline {
         post {
             always {
                 junit 'target/surefire-reports/junitreports/*.xml'
+                emailext attachLog: true, attachmentsPattern: 'target/surefire-reports/*.xml', body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: '$DEFAULT_RECIPIENTS'
             }
         }
     } 
