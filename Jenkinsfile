@@ -8,7 +8,7 @@ pipeline {
     stage('Start the docker container'){
         steps{
         sh 'docker-compose up'
-        sh 'sleep(10)'
+        sh 'sleep 1'
         }
     }    
     stage('Package jar and release artifacts') {
